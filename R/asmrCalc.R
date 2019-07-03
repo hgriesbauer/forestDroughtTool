@@ -67,6 +67,7 @@ asmrCalc=function(climateData,latitude=55,soilsData) {
     # Create snowbank dataframe
     for (j in 1:nrow(clim)) {
 
+      if (j==1) clim$snowbank=NA
       # Starting snowbank is calculated as snowfall from November 15:December 31
       # of last year in the climate dataset
       snowStart=ifelse(j==1,sum(clim[(nrow(clim)-46):nrow(clim),"snow"]),clim$snowbank[j-1])
@@ -118,8 +119,11 @@ asmrCalc=function(climateData,latitude=55,soilsData) {
   }
 
   colnames(ASMR)=paste("S",1:5,".ASMR",sep="")
-  clim=data.frame(clim,ASMR)
 
-    return(clim)
+  # Assign output to final data frame
+  final<-data.frame(clim,ASMR) %>%
+    select(date,year,month,day,everything()) # Reorder
+
+    return(final)
 
 }
