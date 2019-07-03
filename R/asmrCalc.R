@@ -1,13 +1,22 @@
-# ASMR calculation
-# Using daily climate data
+#' ASMR calculation
+#'
+#' This function uses daily climate and soils data to estimate daily
+#' water balance for five different soil moisture regimes.
+#'
+#'@param climateData Climate data must be imported correctly.
+#'@param latitude Latitude can be one of three numbers (50,55,60)
+#'@param soils This can be the soilsData variable as already defined.  If you want to use
+#'different parameters, then modify the soilsData variable.
+#' @import dplyr tidyr
 
-asmrCalc=function(climateData,latitude=55,soilsData) {
 
-# LIBRARIES
-  require(tidyverse)
+
+
+asmrCalc=function(climateData,latitude=55,soils=soilsData) {
 
 # Data checking
   # Placeholder: check climate data, latitude, and soilsData
+
 
 # CONSTANTS
 # TACA uses the following constants:
@@ -26,13 +35,13 @@ asmrCalc=function(climateData,latitude=55,soilsData) {
   daylength=daylength.table[,grep(paste("N",latitude,sep=""),names(daylength.table))]
 
 # EXTRACT SOILS INFORMATION
-  root=soilsData$root
-  CF=soilsData$CF
-  AWSC1=soilsData$AWSC1
-  FC=soilsData$FC
-  AFC=soilsData$AFC
-  AWSC=soilsData$AWSC
-  infRate=soilsData$infRate
+  root=soils$root
+  CF=soils$CF
+  AWSC1=soils$AWSC1
+  FC=soils$FC
+  AFC=soils$AFC
+  AWSC=soils$AWSC
+  infRate=soils$infRate
 
 # ADDITIONAL CLIMATE VARIABLES
   clim <-climateData %>%

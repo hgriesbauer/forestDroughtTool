@@ -1,14 +1,14 @@
 Package: forestDroughtTool
-Title: What the Package Does (One Line, Title Case)
+Title: Estimate drought hazard to forest stands
 Version: 0.0.0.9000
 Authors@R: 
-    c(person(given = "First",
-             family = "Last",
+    c(person(given = "Hardy",
+             family = "Griesbauer",
              role = c("aut", "cre"),
-             email = "first.last@example.com"),
+             email = "Hardy.Griesbauer@gov.bc.ca"),
       person(given = "Province of British Columbia",
              role = "cph"))
-Description: What the package does (one paragraph).
+Description: This package implements a water balance approach to estimating drought hazard at the site-level in forests.  Developed for the forests of British Columbia.
 License: Apache License (== 2.0) | file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -16,5 +16,10 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    ggplot2
 VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    tidyr
+Depends: R (>= 2.10)
