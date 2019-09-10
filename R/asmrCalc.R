@@ -14,8 +14,7 @@
 
 asmrCalc=function(climateData,latitude=55,soils=soilsData) {
 
-# Data checking
-  # Placeholder: check climate data, latitude, and soilsData
+require(dplyr)
 
 
 # CONSTANTS
